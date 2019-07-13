@@ -1,0 +1,6 @@
+read -r -p "Commit message: " msg ## prompt for commit message
+git status  ## know the status
+git add .   ## add the files
+git commit -m "$msg" ## commit
+git push ## push
+

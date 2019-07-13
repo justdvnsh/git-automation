@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cd ~/Desktop/
+
+echo "Making directory $1"
+mkdir $1
+echo "Made Directory $1"
+
+cd ~/Desktop/git_automation/
+
+echo "Making the git repo"
+
+python script.py --password=[YOUR PASSWORD GOES HERE] --name=$1
+
+echo "repo has been made"
+
+echo "Now Initializing the git readme and init files"
+
+cd ~/Desktop/$1
+
+git init
+echo "## $1" > README.md
+echo "---" > README.md
+
+echo "Initialized the git and made the README file"
+
+echo " Now working on git uploads "
+
+git status
+git add .
+git commit -m 'initial commit'
+git remote add origin https://www.github.com/justdvnsh/$1.git
+git push -u origin master
+
+echo "task completed"
+
